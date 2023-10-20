@@ -3,17 +3,11 @@ class LoginController < ApplicationController
   end
 
   def create
-    if answer1 == "Mazda 6" && answer2 == "Andrew Johnston"
+    if params[:answer1] == "Mazda 6" && params[:answer2] == "Andrew Johnston"
       session[:user] = "Varun"
-      redirect_to admin_page
+      redirect_to orders_path
     else
       redirect_to root_path
     end
-  end
-
-  private
-  
-  def login_params
-    params.permit(:email, :password)
   end
 end

@@ -1,1 +1,9 @@
-hello
+<%= form_with url: thisisvarun_path, class: "flex flex-col gap-y-4 px-6" do |form| %>
+  <%= form.label "What's the model of your first car?" %>
+  <%= form.text_field :answer1 %>
+
+  <%= form.label "Who's your favorite Yale professor?" %>
+  <%= form.text_field :answer2 %>
+
+  <%= form.submit "Submit" %>
+<% end %>

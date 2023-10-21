@@ -1,0 +1,6 @@
+<div>
+  <%= form_with model: @email do |form| %>
+    <%= form.email_field :email, placeholder: "Enter your email" %>
+    <%= form.submit "Subscribe" %>
+  <% end %>
+</div>

@@ -1,5 +1,8 @@
 class LoginController < ApplicationController
   def new
+    if session[:user] == "Varun"
+      redirect_to orders_path
+    end
   end
 
   def create

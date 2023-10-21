@@ -1,23 +1,55 @@
-<div class="mt-4 px-6">
-  Batch number: <span><%= @batch_num %></span>
-  <table class="table-auto">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Quantity</th>
-        <th>Date</th>
-        <th>Comments</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @orders.each do |order| %>
+<div class="mt-4 px-6 flex">
+  <div class="mr-8">
+    Batch number: <span><%= @current_batch.id %></span>
+    <table class="mt-4 border-collapse table-auto text-sm">
+      <thead>
         <tr>
-          <td><%= order.name %></td>
-          <td><%= order.quantity %></td>
-          <td><%= order.created_at.to_date %></td>
-          <td><%= order.comment %></td>
+          <th class="border-b font-medium p-4 pl-8 pt-0 pb-3 text-slate-600 text-left">Name</th>
+          <th class="border-b font-medium p-4 pt-0 pb-3 text-slate-600 text-left">Quantity</th>
+          <th class="border-b font-medium p-4 pt-0 pb-3 text-slate-600 text-left">Date</th>
+          <th class="border-b font-medium p-4 pt-0 pb-3 text-slate-600 text-left">Comments</th>
+          <th class="border-b font-medium p-4 pt-0 pb-3 text-slate-600 text-left">Status</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody class="bg-white">
+        <% @current_batch.orders.each do |order| %>
+          <tr>
+            <td class="border-b border-slate-700 p-4 pl-8"><%= order.name %></td>
+            <td class="border-b border-slate-700 p-4"><%= order.quantity %></td>
+            <td class="border-b border-slate-700 p-4"><%= order.created_at.to_date %></td>
+            <td class="border-b border-slate-700 p-4"><%= order.comment %></td>
+            <td class="border-b border-slate-700 p-4"><%= order.status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <% if @last_batch %>
+    <div>
+      Batch number: <span><%= @last_batch.id %></span>
+      <table class="mt-4 border-collapse table-auto text-sm">
+        <thead>
+          <tr>
+            <th class="border-b font-medium p-4 pl-8 pt-0 pb-3 text-slate-600 text-left">Name</th>
+            <th class="border-b font-medium p-4 pt-0 pb-3 text-slate-600 text-left">Quantity</th>
+            <th class="border-b font-medium p-4 pt-0 pb-3 text-slate-600 text-left">Date</th>
+            <th class="border-b font-medium p-4 pt-0 pb-3 text-slate-600 text-left">Comments</th>
+            <th class="border-b font-medium p-4 pt-0 pb-3 text-slate-600 text-left">Status</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white">
+          <% @last_batch.orders.each do |order| %>
+            <tr>
+              <td class="border-b border-slate-700 p-4 pl-8"><%= order.name %></td>
+              <td class="border-b border-slate-700 p-4"><%= order.quantity %></td>
+              <td class="border-b border-slate-700 p-4"><%= order.created_at.to_date %></td>
+              <td class="border-b border-slate-700 p-4"><%= order.comment %></td>
+              <td class="border-b border-slate-700 p-4"><%= order.status %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
 </div>

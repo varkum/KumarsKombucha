@@ -1,0 +1,23 @@
+<div class="mt-4 px-6">
+  Batch number: <span><%= @batch_num %></span>
+  <table class="table-auto">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Date</th>
+        <th>Comments</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.name %></td>
+          <td><%= order.quantity %></td>
+          <td><%= order.created_at.to_date %></td>
+          <td><%= order.comment %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

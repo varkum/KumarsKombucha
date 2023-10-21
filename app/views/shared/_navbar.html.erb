@@ -1,10 +1,12 @@
 <nav class="mb-4 mt-3">
-      <%= image_tag "logo.png", width: "180", class: "rounded-full mx-auto" %>
-      <div class="flex justify-center gap-x-4 mt-3 sm:mt-0">
-        <div class="flex flex-col text-center sm:absolute sm:top-[90px] sm:right-[112px]">
-          <a href="https://6sruetur57x.typeform.com/to/aG1cb6VI" class="bg-purple-700 px-2 py-1 font-semibold rounded-xl  text-white text-lg hover:cursor-pointer">Order Now</a>
-          <span class="text-sm italic">7 bottles left</span>
-        </div>
-        <a href="mailto:varun.kumar@hey.com" class="sm:absolute sm:top-24 sm:right-8 font-semibold mt-2 sm:mt-0">Contact</a>
-      </div>
+  <%= link_to root_path do %> 
+    <%= image_tag "logo.png", width: "180", class: "rounded-full mx-auto" %>
+  <% end %>
+  <div class="flex justify-center gap-x-4 mt-3 sm:mt-0">
+    <div class="flex flex-col text-center sm:absolute sm:top-[90px] sm:right-[112px]">
+      <a href="https://6sruetur57x.typeform.com/to/aG1cb6VI" class="bg-purple-700 px-2 py-1 font-semibold rounded-xl  text-white text-lg hover:cursor-pointer">Order Now</a>
+      <span class="text-sm italic">7 bottles left</span>
+    </div>
+    <a href="mailto:varun.kumar@hey.com" class="sm:absolute sm:top-24 sm:right-8 font-semibold mt-2 sm:mt-0">Contact</a>
+  </div>
 </nav>

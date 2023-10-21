@@ -1,0 +1,12 @@
+<%= form_with model: @order, class: "mt-4 flex flex-col max-w-lg mx-auto" do |form| %>
+  <%= form.label :name, class: "font-semibold" %>
+  <%= form.text_field :name, class: "rounded-xl mb-4" %>
+
+  <%= form.label :quantity, class: "font-semibold" %>
+  <%= form.select :quantity, [1, 2], {}, class: "rounded-xl mb-4" %>
+
+  <%= form.label "Any comments?", class: "font-semibold" %>
+  <%= form.text_area :comment, class: "rounded-xl mb-4" %>
+
+  <%= form.submit "Place Order", class: "rounded-xl hover:cursor-pointer bg-green-300 w-32 mx-auto font-semibold px-1" %>
+<% end %>

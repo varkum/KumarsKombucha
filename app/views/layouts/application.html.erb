@@ -3,6 +3,10 @@
   <head>
     <title>KumarsKombuchaOrders</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Homemade kombucha">
+    <meta name="author" content="Varun Kumar">
+    <link rel="canonical" href="https://kumarskombucha.com">
+    <link rel="icon" type="image/x-icon" href="./assets/images/logo.png">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
@@ -11,7 +15,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="min-h-screen">
     <%= render "shared/navbar" %>
     <main>
       <%= yield %>

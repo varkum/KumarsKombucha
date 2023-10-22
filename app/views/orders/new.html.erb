@@ -10,7 +10,7 @@
     <%= form.select :quantity, [1, 2], {}, class: "rounded mb-4" %>
 
     <%= form.label "Pickup Day", class: "font-semibold" %>
-    <%= form.select :quantity, ["Tuesday", "Wednesday", "Thursday", "Friday"], {prompt: "Select a pickup day", required: true}, class: "rounded mb-4" %>
+    <%= form.select :pickup_day, ["Tuesday", "Wednesday", "Thursday", "Friday"], {prompt: "Select a pickup day", required: true}, class: "rounded mb-4" %>
 
     <%= form.label "Any Feedback?", class: "font-semibold" %>
     <%= form.text_area :comment, class: "rounded mb-4" %>

@@ -9,9 +9,9 @@ class OrdersController < ApplicationController
   end
 
   def create
-    order = Order.new order_params
-    if order.save
-      redirect_to order_complete_path(order)
+    order = Order.new(name: order_params[:name], quantity: order_params[:quantity], pickup_day: order_params[:pickup_day].downcase, comment: order_params[:comment], batch_id: Batch.current.id)
+    if order.save!
+      redirect_to order_complete_path(id: order.id)
     else
       render :index, alert: order.errors.first.full_message
     end
@@ -23,6 +23,6 @@ class OrdersController < ApplicationController
   private 
 
   def order_params
-    params.require(:order).permit(:name, :quantity, :comment).with_defaults(batch_id: Batch.current.id)
+    params.require(:order).permit(:name, :quantity, :comment, :pickup_day)
   end
 end

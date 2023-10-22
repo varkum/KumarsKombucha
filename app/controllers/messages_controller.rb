@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  def order
+  def order_complete
   end
   
   def subscribe

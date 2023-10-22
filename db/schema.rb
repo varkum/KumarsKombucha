@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2023_10_21_232844) do
+ActiveRecord::Schema[7.2].define(version: 2023_10_22_005125) do
   create_table "batches", force: :cascade do |t|
     t.integer "bottles"
     t.datetime "created_at", null: false
@@ -31,6 +31,7 @@ ActiveRecord::Schema[7.2].define(version: 2023_10_21_232844) do
     t.datetime "updated_at", null: false
     t.text "comment"
     t.integer "status"
+    t.integer "pickup_day"
     t.index ["batch_id"], name: "index_orders_on_batch_id"
   end
 

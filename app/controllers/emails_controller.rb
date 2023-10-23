@@ -13,10 +13,14 @@ class EmailsController < ApplicationController
     end
   end
 
+  def unsubscribe
+    @email = Email.find(params[:id])
+  end
+
   def destroy
     email = Email.find(params[:id])
     email.destroy
-    redirect_to unsubscribe_path
+    redirect_to unsubscribe_successful_path
   end
 
   private

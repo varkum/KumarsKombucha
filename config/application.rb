@@ -19,8 +19,8 @@ module KumarsKombuchaOrders
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
-    config.action_mailer.default_url_options = { host: 'localhost:3000' }
-    config.asset_host = 'localhost:3000'
+    config.action_mailer.default_url_options = { host: 'kumarskombucha.com' }
+    config.asset_host = 'https://kumarskombucha.com'
     #config.action_mailer.default_url_options = { host: 'example.com' }
     #config.asset_host = 'http://example.com'
 

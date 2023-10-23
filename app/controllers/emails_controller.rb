@@ -6,6 +6,7 @@ class EmailsController < ApplicationController
   def create
     email = Email.new(email_params)
     if email.save
+      OrderMailer.with(email: email).subscribe_email.deliver_later
       redirect_to subscribe_path
     else
       render :new, alert: email.errors.first.full_message

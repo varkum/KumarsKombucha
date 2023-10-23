@@ -3,8 +3,8 @@
     <p> Pickup windows are <span class="font-bold">2PM - 5PM Tuesday through Friday</span> at the <span class="font-bold">Elm</span>. Please indicate your pickup day below (specific time not required). <a href="mailto:varun.kumar@hey.com" class="text-indigo-500 font-semibold">Email me</a> if none of these work or if there's an issue.
   </div>
   <%= form_with model: @order, class: "mt-4 flex flex-col max-w-lg mx-auto" do |form| %>
-    <%= form.label :name, class: "font-semibold" %>
-    <%= form.text_field :name, class: "rounded mb-4", required: true %>
+    <%= form.label :email, class: "font-semibold" %>
+    <%= form.email_field :email, class: "rounded mb-4", required: true %>
 
     <%= form.label :quantity, class: "font-semibold" %>
     <%= form.select :quantity, [1, 2], {}, class: "rounded mb-4" %>

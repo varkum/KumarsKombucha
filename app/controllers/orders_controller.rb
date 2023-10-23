@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    order = Order.new(name: order_params[:name], quantity: order_params[:quantity], pickup_day: order_params[:pickup_day].downcase, comment: order_params[:comment], batch_id: Batch.current.id)
+    order = Order.new(email: order_params[:email], quantity: order_params[:quantity], pickup_day: order_params[:pickup_day].downcase, comment: order_params[:comment], batch_id: Batch.current.id)
     if order.save!
       redirect_to order_complete_path(id: order.id)
     else
@@ -23,6 +23,6 @@ class OrdersController < ApplicationController
   private 
 
   def order_params
-    params.require(:order).permit(:name, :quantity, :comment, :pickup_day)
+    params.require(:order).permit(:email, :quantity, :comment, :pickup_day)
   end
 end

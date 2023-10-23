@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   resources :emails, path: :subscriptions, only: [:new, :create, :destroy]
 
   get "subscribe", to: "messages#subscribe"
+  get "unsubscribe", to: "messages#unsubscribe"
   get "order_complete", to: "messages#order_complete"
+  
   resources :orders do
     get "complete"
   end

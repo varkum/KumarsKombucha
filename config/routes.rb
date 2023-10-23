@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "/up", to: Proc.new { [200, {}, ["OK"]] }
+  
   resources :emails, path: :subscriptions, only: [:new, :create, :destroy] do
     get "unsubscribe", on: :member
   end

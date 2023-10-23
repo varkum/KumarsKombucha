@@ -2,7 +2,7 @@
 service: kumars-kombucha
 
 # Name of the container image.
-image: vk/kumars-kombucha
+image: varkum19/kumars-kombucha
 
 # Deploy to these servers.
 servers:
@@ -29,14 +29,12 @@ env:
 #   user: app
 
 # Configure builder setup.
-# builder:
-#   args:
-#     RUBY_VERSION: 3.2.0
-#   secrets:
-#     - GITHUB_TOKEN
-#   remote:
-#     arch: amd64
-#     host: ssh://app@192.168.0.1
+#builder:
+  #args:
+  #  RUBY_VERSION: 3.2.0
+  #remote:
+  #  arch: amd64
+    
 
 # Use accessory services (secrets come from .env).
 # accessories:

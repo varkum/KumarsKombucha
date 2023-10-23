@@ -7,7 +7,7 @@ class OrderMailer < ApplicationMailer
   end
 
   def order_email
-    @order = Order.find(params[:order])
-    mail(to: params[:email], subject: "Your Kumar's Kombucha Order")
+    @order = params[:order]
+    mail(to: @order.email, subject: "Your Kumar's Kombucha Order")
   end
 end

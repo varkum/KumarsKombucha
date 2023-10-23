@@ -1,0 +1,5 @@
+Thank you for your Kumar's Kombucha order! It's ready to pickup this week.
+
+Your pickup day is *<%= @order.pickup_day.capitalize %>*. Please come to *the Elm between 2PM and 5PM*— find me at one of the tables in the back.
+
+If <%= @order.pickup_day.capitalize %> doesn't work for you anymore, come to the Elm any day between 2PM and 5PM Tuesday through Friday. You can also <%= mail_to "varun.kumar@hey.com", "email me" %>

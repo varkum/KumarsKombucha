@@ -2,8 +2,8 @@ class OrderMailer < ApplicationMailer
   default from: 'varun.kumar@hey.com'
 
   def subscription_email
-    @email = Email.find(params[:email])
-    mail(to: email.address, subject: "You've subscribed to Kumars Kombucha")
+    @email = params[:email]
+    mail(to: @email.address, subject: "You've subscribed to Kumars Kombucha")
   end
 
   def order_email

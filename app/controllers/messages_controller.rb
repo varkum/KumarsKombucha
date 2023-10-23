@@ -6,6 +6,6 @@ class MessagesController < ApplicationController
   def subscribe
   end
 
-  def unsubscribe
+  def unsubscribe_successful
   end
 end

@@ -1,20 +1,23 @@
 <div class="max-w-lg mx-auto mt-12 px-4">
   <div class="px-4 mb-5 text-gray-500 text-sm">
+    <h3 class="<%= 'hidden' unless @batch_is_finished%> text-xl">Unfortunately, there are no more bottles left this batch. I'm really sorry about that! Subscribe to the email list if you want to hear when the next batch is ready. </h3>
     <p> Pickup windows are <span class="font-bold">2PM - 5PM Tuesday through Friday</span> at the <span class="font-bold">Elm</span>. Please indicate your pickup day below (specific time not required). <a href="mailto:varun.kumar@hey.com" class="text-indigo-500 font-semibold">Email me</a> if none of these work or if there's an issue.
   </div>
-  <%= form_with model: @order, class: "mt-4 flex flex-col max-w-lg mx-auto" do |form| %>
-    <%= form.label :email, class: "font-semibold" %>
-    <%= form.email_field :email, class: "rounded mb-4", required: true %>
+  <div class="<%= 'hidden' if @batch_is_finished%>">
+    <%= form_with model: @order, class: "mt-4 flex flex-col max-w-lg mx-auto" do |form| %>
+      <%= form.label :email, class: "font-semibold" %>
+      <%= form.email_field :email, class: "rounded mb-4", required: true %>
 
-    <%= form.label :quantity, class: "font-semibold" %>
-    <%= form.select :quantity, [1, 2], {}, class: "rounded mb-4" %>
+      <%= form.label :quantity, class: "font-semibold" %>
+      <%= form.select :quantity, [1, 2], {}, class: "rounded mb-4" %>
 
-    <%= form.label "Pickup Day", class: "font-semibold" %>
-    <%= form.select :pickup_day, ["Tuesday", "Wednesday", "Thursday", "Friday"], {prompt: "Select a pickup day", required: true}, class: "rounded mb-4" %>
+      <%= form.label "Pickup Day", class: "font-semibold" %>
+      <%= form.select :pickup_day, ["Tuesday", "Wednesday", "Thursday", "Friday"], {prompt: "Select a pickup day", required: true}, class: "rounded mb-4" %>
 
-    <%= form.label "Any Feedback?", class: "font-semibold" %>
-    <%= form.text_area :comment, class: "rounded mb-4" %>
+      <%= form.label "Any Feedback?", class: "font-semibold" %>
+      <%= form.text_area :comment, class: "rounded mb-4" %>
 
-    <%= form.submit "Place Order", class: "rounded-xl bg-green-300 w-32 mx-auto font-semibold px-1 hover:cursor-pointer hover:bg-green-500 hover:text-white" %>
-  <% end %>
+      <%= form.submit "Place Order", class: "rounded-xl bg-green-300 w-32 mx-auto font-semibold px-1 hover:cursor-pointer hover:bg-green-500 hover:text-white"%>
+    <% end %>
+  </div>
 </div>

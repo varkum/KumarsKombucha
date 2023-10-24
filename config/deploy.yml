@@ -24,8 +24,6 @@ env:
   secret:
     - RAILS_MASTER_KEY
 
-volumes:
-  - "/var/data"
 
 # Use a different ssh user than root
 # ssh:

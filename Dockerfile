@@ -39,6 +39,7 @@ RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 
 ENV SECRET_KEY_BASE 1
 
+ENV LITESTACK_DATA_PATH /data
 # Final stage for app image
 FROM base
 

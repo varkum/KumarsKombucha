@@ -105,6 +105,4 @@ Rails.application.configure do
   enable_starttls: true,
   open_timeout:    10,
   read_timeout:    10 }
-
-  config.assets.prefix = "/public/assets"
 end

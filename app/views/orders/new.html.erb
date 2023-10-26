@@ -13,7 +13,14 @@
       <%= form.email_field :email, class: "rounded mb-4", required: true %>
 
       <%= form.label :quantity, class: "font-semibold" %>
-      <%= form.select :quantity, [1, 2], {}, class: "rounded mb-4" %>
+      <% if @bottles_left == 1 %>
+        <select class="rounded mb-4" name="order[quantity]" id="order_quantity">
+          <option value="1">1</option>
+          <option value="2" disabled>2 (out of stock)</option>
+        </select>
+      <% else %>
+        <%= form.select :quantity, [1, 2], {}, class: "rounded mb-4" %>
+      <% end %>
 
       <%= form.label "Pickup Day", class: "font-semibold" %>
       <%= form.select :pickup_day, ["Tuesday", "Wednesday", "Thursday", "Friday"], {prompt: "Select a pickup day", required: true}, class: "rounded mb-4" %>

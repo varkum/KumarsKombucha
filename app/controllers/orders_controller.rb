@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @batch_is_finished = Batch.current.no_bottles_left?
+    @bottles_left = Batch.current.bottles_left
   end
 
   def create

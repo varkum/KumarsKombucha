@@ -1,6 +1,7 @@
 <div class="mt-4 px-6 flex">
   <div class="mr-8">
-    Batch number: <span><%= @current_batch.id %></span>
+    <%= link_to "See email list", emails_path %>
+    <p>Batch number: <span><%= @current_batch.id %></span></p>
     <table class="mt-4 border-collapse table-auto text-sm">
       <thead>
         <tr>

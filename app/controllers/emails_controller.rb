@@ -1,4 +1,10 @@
 class EmailsController < ApplicationController
+  def index
+    @emails = Email.all
+    if session[:user].nil?
+      raise ActionController::RoutingError.new('Not Found')
+    end
+  end
   def new
     @email = Email.new
   end

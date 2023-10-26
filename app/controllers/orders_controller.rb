@@ -1,5 +1,8 @@
 class OrdersController < ApplicationController
   def index
+    if session[:user].nil?
+      raise ActionController::RoutingError.new('Not Found')
+    end
     @current_batch = Batch.current
     @last_batch = Batch.previous
   end

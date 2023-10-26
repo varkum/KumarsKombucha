@@ -10,6 +10,6 @@ class Batch < ApplicationRecord
   end
 
   def no_bottles_left?
-    bottles - orders.pluck(:quantity).sum == 0
+    bottles - orders.pluck(:quantity).sum <= 0
   end
 end

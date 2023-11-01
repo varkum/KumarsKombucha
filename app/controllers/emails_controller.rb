@@ -10,12 +10,12 @@ class EmailsController < ApplicationController
   end
 
   def create
-    email = Email.new(email_params)
-    if email.save
-      OrderMailer.with(email: email).subscription_email.deliver_later
+    @email = Email.new(email_params)
+    if @email.save
+      OrderMailer.with(email: @email).subscription_email.deliver_later
       redirect_to subscribe_path
     else
-      render :new, alert: email.errors.first.full_message
+      render :new, status: :unprocessable_entity
     end
   end
 

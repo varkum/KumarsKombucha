@@ -23,6 +23,8 @@ registry:
 env:
   secret:
     - RAILS_MASTER_KEY
+    - OUTLOOK_EMAIL
+    - OUTLOOK_PASSWORD
 
 volumes:
   - "data:/data"

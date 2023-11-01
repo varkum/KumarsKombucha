@@ -4,6 +4,10 @@
     <p class="text-gray-500 text-sm">Once you subscribe, you'll get an email any time a new batch is ready. You'll then be able to buy and pickup bottles. Unsubscribe any time.</p>
   </div>
   <%= form_with model: @email, class: "flex flex-col" do |form| %>
+    <% if @email.errors.any? %>
+      <p class="mb-4 text-red-500"><%= @email.errors.first.full_message %></p>
+    <% end %>
+    
     <%= form.email_field :address, placeholder: "Enter your email", class: "rounded" %>
     <%= form.submit "Subscribe", class: "bg-purple-300 font-semibold rounded-xl px-1 w-28 mx-auto mt-3 hover:cursor-pointer hover:bg-purple-600 hover:text-white" %>
   <% end %>

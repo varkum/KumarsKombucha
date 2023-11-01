@@ -4,6 +4,6 @@ export default class extends Controller {
   static targets = ["button"]
 
   connect() {
-    this.buttonTarget.click();
+    this.buttonTarget.form.requestSubmit();
   }
 }

@@ -4,6 +4,7 @@ export default class extends Controller {
   static targets = ["button"]
 
   connect() {
-    this.buttonTarget.click();
+    console.log("running!!!!")
+    //this.buttonTarget.click();
   }
 }

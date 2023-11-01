@@ -1,3 +1,2 @@
-<div class="hidden" data-controller="unsubscribe">
-  <%= button_to "Unsubscribe", email_path(@email), method: :delete, data: { unsubscribe_target: "button"} %>
-</div>
+<%= button_to "Unsubscribe", email_path(@email), method: :delete, class: "hidden", data: { controller: "unsubscribe", unsubscribe_target: "button"} %>
+

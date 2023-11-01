@@ -1,2 +1,8 @@
-<%= button_to "Unsubscribe", email_path(@email), method: :delete, class: "hidden", data: { controller: "unsubscribe", unsubscribe_target: "button"} %>
+<div class="max-w-lg mx-auto text-center mt-12 px-4">
+  <%= form_with model: @email, method: :delete, class: "flex flex-col" do |form| %>
+    <%= form.email_field :address, value: @email.address, class: "rounded w-full" %>
+   
+    <%= form.submit "Unsubscribe", class: "bg-purple-300 font-semibold rounded-xl px-1 w-28 mx-auto mt-3 hover:cursor-pointer hover:bg-purple-600 hover:text-white" %>
+  <% end %>
+</div>
 

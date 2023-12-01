@@ -4,7 +4,8 @@ class OrdersController < ApplicationController
       raise ActionController::RoutingError.new('Not Found')
     end
     @current_batch = Batch.current
-    @last_batch = Batch.previous
+    @bottles_left = Batch.current.bottles_left
+    @unfulfilled_orders = Order.unfulfilled
   end
 
   def new
@@ -22,6 +23,12 @@ class OrdersController < ApplicationController
       render :index, alert: order.errors.first.full_message
     end
   end
+  
+  def update
+    order = Order.find(params[:id])
+    order.update(status: order_params[:status])
+    redirect_to orders_path
+  end
 
   def complete
   end
@@ -29,6 +36,6 @@ class OrdersController < ApplicationController
   private 
 
   def order_params
-    params.require(:order).permit(:email, :quantity, :comment, :pickup_day)
+    params.require(:order).permit(:email, :quantity, :comment, :pickup_day, :status)
   end
 end

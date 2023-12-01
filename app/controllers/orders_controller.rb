@@ -29,6 +29,11 @@ class OrdersController < ApplicationController
     order.update(status: order_params[:status])
     redirect_to orders_path
   end
+  
+  def fulfill
+    Order.unfulfilled.update_all(status: "complete")
+    redirect_to orders_path
+  end
 
   def complete
   end

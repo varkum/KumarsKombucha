@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   
   resources :orders do
     get "complete"
+    patch "fulfill", on: :collection
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

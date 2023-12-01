@@ -6,7 +6,7 @@ class LoginController < ApplicationController
   end
 
   def create
-    if params[:answer1] == "Mazda 6" && params[:answer2] == "Andrew Johnston"
+    if params[:password] == Rails.application.credentials.admin.password
       session[:user] = "Varun"
       redirect_to orders_path
     else

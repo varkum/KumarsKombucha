@@ -1,9 +1,7 @@
-<%= form_with url: thisisvarun_path, class: "flex flex-col gap-y-4 px-6" do |form| %>
-  <%= form.label "What's the model of your first car?" %>
-  <%= form.text_field :answer1 %>
+<%= form_with url: thisisvarun_path, class: "flex flex-col gap-y-4 px-6 lg:w-1/3 mx-auto mt-4" do |form| %>
 
-  <%= form.label "Who's your favorite Yale professor?" %>
-  <%= form.text_field :answer2 %>
+  <%= form.label "Password" %>
+  <%= form.password_field :password, class: "rounded" %>
 
-  <%= form.submit "Submit" %>
+  <%= form.submit "Submit", class: "rounded p-1 font-semibold bg-green-700 text-white" %>
 <% end %>

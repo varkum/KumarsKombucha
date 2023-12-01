@@ -1,60 +1,42 @@
 <div class="mt-4 px-6 flex">
   <div class="mr-8">
-    <%= link_to "See email list", emails_path %>
-    <p>Batch number: <span><%= @current_batch.id %></span></p>
-    <table class="mt-4 border-collapse table-auto text-sm">
-      <thead>
-        <tr>
-          <th class="border-b font-medium p-4 pl-8 pt-0 pb-3 text-slate-600 text-left">Email</th>
-          <th class="border-b font-medium p-4 pt-0 pb-3 text-slate-600 text-left">Quantity</th>
-          <th class="border-b font-medium p-4 pt-0 pb-3 text-slate-600 text-left">Date</th>
-          <th class="border-b font-medium p-4 pt-0 pb-3 text-slate-600 text-left">Pickup Day</th>
-          <th class="border-b font-medium p-4 pt-0 pb-3 text-slate-600 text-left">Comments</th>
-          <th class="border-b font-medium p-4 pt-0 pb-3 text-slate-600 text-left">Status</th>
-        </tr>
-      </thead>
-      <tbody class="bg-white">
-        <% @current_batch.orders.each do |order| %>
-          <tr>
-            <td class="border-b border-slate-700 p-4 pl-8"><%= order.email %></td>
-            <td class="border-b border-slate-700 p-4"><%= order.quantity %></td>
-            <td class="border-b border-slate-700 p-4"><%= order.created_at.to_date %></td>
-            <td class="border-b border-slate-700 p-4"><%= order.pickup_day %></td>
-            <td class="border-b border-slate-700 p-4"><%= order.comment %></td>
-            <td class="border-b border-slate-700 p-4"><%= order.status %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+	<div class="flex justify-between">
+		<div>
+		    <%= link_to "See email list", emails_path %>
+		    <p>Batch number: <span><%= @current_batch.id %></span></p>
+			<p> Bottles left: <span><%= @bottles_left %></p>
+		</div>
+		<%= button_to "Mark all orders as complete", fulfill_orders_path, method: :patch, class: "rounded p-1 font-semibold text-white bg-purple-500 text-sm"%>
+	</div>
+	<%= turbo_frame_tag "unfulfilled orders" do %>
+	    <table class="mt-4 border-collapse table-auto text-sm">
+	      <thead>
+	        <tr>
+	          <th class="border-b font-medium p-4 pl-8 pt-0 pb-3 text-slate-600 text-left">Email</th>
+	          <th class="border-b font-medium p-4 pt-0 pb-3 text-slate-600 text-left">Quantity</th>
+	          <th class="border-b font-medium p-4 pt-0 pb-3 text-slate-600 text-left">Date</th>
+	          <th class="border-b font-medium p-4 pt-0 pb-3 text-slate-600 text-left">Pickup Day</th>
+	          <th class="border-b font-medium p-4 pt-0 pb-3 text-slate-600 text-left">Comments</th>
+	          <th class="border-b font-medium p-4 pt-0 pb-3 text-slate-600 text-left">Status</th>
+	        </tr>
+	      </thead>
+	      <tbody class="bg-white">
+	        <% @unfulfilled_orders.each do |order| %>
+	          <tr>
+	            <td class="border-b border-slate-700 p-4 pl-8"><%= order.email %></td>
+	            <td class="border-b border-slate-700 p-4"><%= order.quantity %></td>
+	            <td class="border-b border-slate-700 p-4"><%= order.created_at.to_date %></td>
+	            <td class="border-b border-slate-700 p-4"><%= order.pickup_day %></td>
+	            <td class="border-b border-slate-700 p-4"><%= order.comment %></td>
+	            <td class="border-b border-slate-700 p-4">
+	            	<%= form_with model: order, method: :patch do |form| %>
+						<%= form.select :status, options_for_select(Order.statuses.keys), {}, {value: order.status, onchange: 'this.form.requestSubmit()', class: 'rounded'} %>
+					<% end %>
+	            </td>
+	          </tr>
+	        <% end %>
+	      </tbody>
+	    </table>
+	<% end %>
   </div>
-
-  <% if @last_batch %>
-    <div>
-      Batch number: <span><%= @last_batch.id %></span>
-      <table class="mt-4 border-collapse table-auto text-sm">
-        <thead>
-          <tr>
-            <th class="border-b font-medium p-4 pl-8 pt-0 pb-3 text-slate-600 text-left">Email</th>
-            <th class="border-b font-medium p-4 pt-0 pb-3 text-slate-600 text-left">Quantity</th>
-            <th class="border-b font-medium p-4 pt-0 pb-3 text-slate-600 text-left">Date</th>
-            <th class="border-b font-medium p-4 pt-0 pb-3 text-slate-600 text-left">Pickup Day</th>
-            <th class="border-b font-medium p-4 pt-0 pb-3 text-slate-600 text-left">Comments</th>
-            <th class="border-b font-medium p-4 pt-0 pb-3 text-slate-600 text-left">Status</th>
-          </tr>
-        </thead>
-        <tbody class="bg-white">
-          <% @last_batch.orders.each do |order| %>
-            <tr>
-              <td class="border-b border-slate-700 p-4 pl-8"><%= order.email %></td>
-              <td class="border-b border-slate-700 p-4"><%= order.quantity %></td>
-              <td class="border-b border-slate-700 p-4"><%= order.created_at.to_date %></td>
-              <td class="border-b border-slate-700 p-4"><%= order.pickup_day %></td>
-              <td class="border-b border-slate-700 p-4"><%= order.comment %></td>
-              <td class="border-b border-slate-700 p-4"><%= order.status %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  <% end %>
 </div>

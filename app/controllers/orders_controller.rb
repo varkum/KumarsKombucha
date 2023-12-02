@@ -18,6 +18,7 @@ class OrdersController < ApplicationController
     order = Order.new(email: order_params[:email], quantity: order_params[:quantity], pickup_day: order_params[:pickup_day].downcase, comment: order_params[:comment], batch_id: Batch.current.id)
     if order.save!
       OrderMailer.with(order: order).order_email.deliver_later
+      OrderMailer.with(order: order).admin_order_email.deliver_later
       redirect_to order_complete_path(id: order.id)
     else
       render :index, alert: order.errors.first.full_message

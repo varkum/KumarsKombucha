@@ -10,4 +10,9 @@ class OrderMailer < ApplicationMailer
     @order = params[:order]
     mail(to: @order.email, subject: "Your Kumar's Kombucha Order")
   end
+  
+  def admin_order_email
+    @order = params[:order]
+    mail(to: 'varun.kumar@hey.com', subject: "New Kumar's Kombucha Order")
+  end
 end

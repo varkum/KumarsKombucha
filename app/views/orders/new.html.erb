@@ -23,7 +23,7 @@
       <% end %>
 
       <%= form.label "Pickup Day", class: "font-semibold" %>
-      <%= form.select :pickup_day, ["Tuesday", "Thursday", "Friday"], {prompt: "Select a pickup day", required: true}, class: "rounded mb-4" %>
+      <%= form.select :pickup_day, ["Thursday", "Friday", "Saturday", "Sunday", "Monday"], {prompt: "Select a pickup day", required: true}, class: "rounded mb-4" %>
 
       <%= form.label "Any Feedback?", class: "font-semibold" %>
       <%= form.text_area :comment, class: "rounded mb-4" %>

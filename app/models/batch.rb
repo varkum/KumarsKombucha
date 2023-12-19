@@ -1,5 +1,6 @@
 class Batch < ApplicationRecord
   has_many :orders
+  serialize :pickup_days, Array
 
   def self.current
     last

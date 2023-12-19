@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get "unsubscribe_successful", to: "messages#unsubscribe_successful"
   get "order_complete", to: "messages#order_complete"
   
+  resources :batches, only: [:new, :create]
+  
   resources :orders do
     get "complete"
     patch "fulfill", on: :collection

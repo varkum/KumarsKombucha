@@ -3,6 +3,9 @@
 	<div class="flex justify-between">
 		<div>
 		    <%= link_to "See email list", emails_path %>
+			<%= turbo_frame_tag "new_batch" do %>
+				<%= link_to "Create new batch", new_batch_path %>
+			<% end %>
 		    <p>Batch number: <span><%= @current_batch.id %></span></p>
 			<p> Bottles left: <span><%= @bottles_left %></p>
 		</div>

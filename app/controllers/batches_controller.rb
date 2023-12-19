@@ -4,6 +4,12 @@ class BatchesController < ApplicationController
   end
   
   def create
+    @batch = Batch.new(batch_params)
+    if @batch.save
+      redirect_to orders_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
   
   private

@@ -1,19 +1,20 @@
 <%= turbo_frame_tag "new_batch" do %>
-	<div class="max-w-lg mx-auto mt-12 px-4 mb-3">
+	<div class="max-w-lg mx-auto mt-2 px-4 mb-3">
 		<%= form_with model: @batch do |form| %>
-			<div class="flex">
-				<div>
+			<div class="flex gap-4">
+				<div class="flex flex-col">
 					<%= form.label "Bottles", class: "font-semibold" %>
 					<%= form.number_field :bottles, class: "rounded w-20" %>
 				</div>
 		
-				<div>
+				<div class="flex flex-col">
 					<%= form.label "Pickup days", class: "font-semibold" %>
 					<%= form.select :pickup_days, options_for_select(Date::DAYNAMES), { multiple: true, class: "rounded" } %>
 				</div>
 			</div>
-		
-			<%= form.submit "Create Batch", class: "w-fit bg-blue-500 text-center p-1 hover:cursor-pointer font-semibold text-white rounded" %>
+			<div class="mx-auto text-center">
+				<%= form.submit "Create Batch", class: "mt-1 w-fit bg-blue-500 p-1 hover:cursor-pointer font-semibold text-white rounded text-sm", data: { turbo_frame: "_top" } %>
+			</div>
 		<% end %>
 	</div>
 <% end %>

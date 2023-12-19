@@ -2,11 +2,11 @@
   <div class="mr-8">
 	<div class="flex justify-between">
 		<div>
-		    <%= link_to "See email list", emails_path %>
+		    <%= link_to "See email list", emails_path, class: "italic font-semibold" %>
 			<%= turbo_frame_tag "new_batch" do %>
-				<%= link_to "Create new batch", new_batch_path %>
+				<%= link_to "Create new batch", new_batch_path, class: "block italic font-semibold" %>
 			<% end %>
-		    <p>Batch number: <span><%= @current_batch.id %></span></p>
+		    <p class="mt-3">Batch number: <span><%= @current_batch.id %></span></p>
 			<p> Bottles left: <span><%= @bottles_left %></p>
 		</div>
 		<%= button_to "Mark all orders as complete", fulfill_orders_path, method: :patch, class: "rounded p-1 font-semibold text-white bg-purple-500 text-sm"%>

@@ -17,5 +17,4 @@ class BatchesController < ApplicationController
   def batch_params
     params.require(:batch).permit(:bottles, pickup_days: [])
   end
-  
 end

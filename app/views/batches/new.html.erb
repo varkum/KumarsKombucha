@@ -9,7 +9,7 @@
 		
 				<div class="flex flex-col">
 					<%= form.label "Pickup days", class: "font-semibold" %>
-					<%= form.select :pickup_days, options_for_select(Date::DAYNAMES), { multiple: true, class: "rounded" } %>
+					<%= form.select :pickup_days, Date::DAYNAMES, { include_blank: false, include_hidden: false }, { multiple: true, class: "rounded" } %>
 				</div>
 			</div>
 			<div class="mx-auto text-center">
